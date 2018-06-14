@@ -141,14 +141,21 @@ public class Myframe {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				int [][] board=new int[9][9];
-				Valid valid=new Valid(board);				
 				for(int i=0;i<9;i++) {
 					for(int j=0;j<9;j++) {
+						if(text[i][j].getText().equals("")) {
+							text[i][j].setText("0");
+						}
 						
+					}
+				}
+				for(int i=0;i<9;i++) {
+					for(int j=0;j<9;j++) {						
 						board[i][j]=Integer.parseInt(text[i][j].getText());
 					}
 					
 				}
+				Valid valid=new Valid(board);
 				
 				if(!valid.valid()) {
 					Reset.setBackground(Color.RED);
